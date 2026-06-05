@@ -199,8 +199,9 @@ body {
 .phone-wrap {
   position: fixed;
   right: 24px;
-  bottom: 92px;
+  bottom: 95px;
   z-index: 50;
+  width: 230px;
 }
 
 .closed-phone {
@@ -212,6 +213,8 @@ body {
   box-shadow: 0 0 24px rgba(216, 236, 255, 0.85);
   cursor: pointer;
   position: relative;
+  display: block;
+  margin-left: auto;
 }
 
 .closed-phone-screen {
@@ -237,7 +240,8 @@ body {
 
 .flip-phone {
   display: none;
-  width: 190px;
+  width: 210px;
+  margin-left: auto;
   transform-origin: bottom right;
 }
 
