@@ -251,17 +251,21 @@ body {
 }
 
 .secret-button {
+  position: fixed;
   right: 24px;
   bottom: 24px;
+  width: auto;
+  max-width: fit-content;
   background: #f7f2ff;
   color: #061426;
   text-decoration: none;
   border: 1px solid #d8ecff;
-  padding: 12px 18px;
+  padding: 12px 22px;
   border-radius: 999px;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  z-index: 40;
 }
 
 .flip-phone {
