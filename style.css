@@ -196,31 +196,6 @@ body {
   padding-top: 16px;
 }
 
-.page-decor {
-  position: fixed;
-  color: rgba(216, 236, 255, 0.75);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.decor-star {
-  top: 12%;
-  right: 12%;
-  font-size: 70px;
-}
-
-.decor-bow {
-  bottom: 14%;
-  left: 8%;
-  font-size: 80px;
-}
-
-.decor-moon {
-  top: 45%;
-  right: 6%;
-  font-size: 90px;
-}
-
 .phone-button,
 .secret-button {
   position: fixed;
