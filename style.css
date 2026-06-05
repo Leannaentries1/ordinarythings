@@ -402,3 +402,19 @@ body {
   z-index: 40;
 }
 
+.phone-screen-apps {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.phone-screen-apps button {
+  width: 32px;
+  height: 28px;
+  border: 1px solid #9ca3af;
+  border-radius: 8px;
+  background: #061426;
+  color: #eef6ff;
+  cursor: pointer;
+}
