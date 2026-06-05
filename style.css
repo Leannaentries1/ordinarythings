@@ -196,24 +196,58 @@ body {
   padding-top: 16px;
 }
 
-.phone-button,
-.secret-button {
-  position: fixed;
-  z-index: 20;
-}
-
 .phone-button {
   right: 24px;
   bottom: 90px;
-  width: 62px;
-  height: 62px;
-  border-radius: 50%;
-  border: 2px solid #d8ecff;
-  background: #cfd8e3;
-  color: #061426;
-  font-size: 26px;
+  width: 72px;
+  height: 92px;
+  border: 0;
+  background: transparent;
   cursor: pointer;
-  box-shadow: 0 0 18px rgba(216, 236, 255, 0.7);
+  filter: drop-shadow(0 0 18px rgba(216, 236, 255, 0.8));
+}
+
+.flip-phone-button {
+  display: grid;
+  gap: 3px;
+  padding: 0;
+}
+
+.mini-phone-top,
+.mini-phone-bottom {
+  display: block;
+  width: 72px;
+  background: linear-gradient(135deg, #f8fafc, #9ca3af);
+  border: 3px solid #eef6ff;
+}
+
+.mini-phone-top {
+  height: 38px;
+  border-radius: 18px 18px 7px 7px;
+}
+
+.mini-phone-hinge {
+  width: 54px;
+  height: 6px;
+  margin: 0 auto;
+  background: #eef6ff;
+  border-radius: 999px;
+}
+
+.mini-phone-bottom {
+  height: 45px;
+  border-radius: 7px 7px 18px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.mini-phone-bottom span {
+  width: 9px;
+  height: 9px;
+  background: #07182e;
+  border-radius: 50%;
 }
 
 .secret-button {
