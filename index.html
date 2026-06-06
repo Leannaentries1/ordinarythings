@@ -87,14 +87,22 @@
 
   </main>
 
+  <div class="phone-wrap" id="phoneWrap">
+  <button class="closed-phone" id="phoneButton" aria-label="Open flip phone">
+    <span class="closed-phone-screen"></span>
+    <span class="closed-phone-camera"></span>
+  </button>
+
   <section class="flip-phone" id="flipPhone">
     <div class="phone-top">
       <div class="phone-camera"></div>
       <div class="phone-speaker"></div>
 
       <div class="phone-display">
-        <h3>Ordinary Things</h3>
-        <p>1 New Notice</p>
+        <div class="phone-app-window" id="phoneAppWindow">
+          <h4 id="phoneAppTitle">Notices</h4>
+          <p id="phoneAppText">A new entry has been posted.</p>
+        </div>
       </div>
     </div>
 
@@ -103,25 +111,12 @@
     <div class="phone-bottom">
       <div class="phone-charm">♡</div>
 
-<div class="phone-display">
-  <div class="phone-app-window" id="phoneAppWindow">
-    <h4 id="phoneAppTitle">Notices</h4>
-    <p id="phoneAppText">A new entry has been posted.</p>
-  </div>
-</div>
-
       <div class="phone-screen-apps">
-  <button type="button" class="phone-app-btn" data-app="phone">☎<span>Phone</span></button>
-  <button type="button" class="phone-app-btn" data-app="messages">✉<span>Messages</span></button>
-  <button type="button" class="phone-app-btn" data-app="notices">!<span>Notices</span></button>
-</div>
-      
-      <div class="phone-wrap" id="phoneWrap">
-  <button class="closed-phone" id="phoneButton" aria-label="Open flip phone">
-    <span class="closed-phone-screen"></span>
-    <span class="closed-phone-camera"></span>
-  </button>
-        
+        <button type="button" class="phone-app-btn" data-app="phone">☎<span>Phone</span></button>
+        <button type="button" class="phone-app-btn" data-app="messages">✉<span>Messages</span></button>
+        <button type="button" class="phone-app-btn" data-app="notices">!<span>Notices</span></button>
+      </div>
+
       <div class="phone-circle"></div>
 
       <div class="phone-keys">
