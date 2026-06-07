@@ -504,3 +504,64 @@ body {
   cursor: pointer;
   font-size: 9px;
 }
+
+.post-comments {
+  margin-top: 18px;
+  border-top: 1px solid #d8ecff;
+  padding-top: 14px;
+}
+
+.post-comments h4 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.comment-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.comment-bubble {
+  background: #f8fbff;
+  border: 1px solid #b7d8ff;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.comment-bubble strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.comment-bubble span {
+  display: block;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.comment-name,
+.comment-text {
+  width: 100%;
+  border: 1px solid #b7d8ff;
+  border-radius: 10px;
+  padding: 9px;
+  margin-bottom: 8px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.comment-text {
+  height: 70px;
+  resize: vertical;
+}
+
+.comment-send {
+  background: #78bfff;
+  color: #061426;
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
