@@ -77,7 +77,7 @@ function loadMessagesApp() {
   phoneAppText.innerHTML = `
     <div class="chat-box" id="chatBox"></div>
 
-    <input class="chat-input" id="nicknameInput" type="text" placeholder="Nickname" maxlength="18" />
+    <input class="chat-input" id="nicknameInput" type="text" placeholder="Nickname" maxlength="30" />
 
     <textarea class="chat-message-input" id="messageInput" placeholder="Write a message..." maxlength="160"></textarea>
 
