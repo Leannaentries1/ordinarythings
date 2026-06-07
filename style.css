@@ -262,7 +262,7 @@ body {
 }
 
 .phone-top {
-  height: 310px;
+  height: 390px;
   border-radius: 18px 18px 8px 8px;
   position: relative;
   padding: 18px;
@@ -448,7 +448,7 @@ body {
 }
 
 .chat-box {
-  height: 210px;
+  height: 215px;
   overflow-y: auto;
   border: 1px solid #4b5563;
   background: rgba(255, 255, 255, 0.72);
