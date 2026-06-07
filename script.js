@@ -1,3 +1,26 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  orderBy,
+  onSnapshot,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDRc7008yHYApRVTMIqvt-ao789uvlwgTU",
+  authDomain: "officemuse-messenger.firebaseapp.com",
+  projectId: "officemuse-messenger",
+  storageBucket: "officemuse-messenger.firebasestorage.app",
+  messagingSenderId: "1089537013433",
+  appId: "1:1089537013433:web:e9f5b6cc75cdb38f2b8d68"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const phoneButton = document.getElementById("phoneButton");
 const flipPhone = document.getElementById("flipPhone");
 
@@ -19,9 +42,9 @@ appButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.stopPropagation();
 
-    const app = button.dataset.app;
+    const appName = button.dataset.app;
 
-    if (app === "phone") {
+    if (appName === "phone") {
       phoneAppTitle.textContent = "Observer Hotline";
       phoneAppText.innerHTML = `
         <strong>Status:</strong> Available<br><br>
@@ -30,15 +53,11 @@ appButtons.forEach((button) => {
       `;
     }
 
-    if (app === "messages") {
-      phoneAppTitle.textContent = "Messages";
-      phoneAppText.innerHTML = `
-        <strong>Observer Chatroom</strong><br><br>
-        Firebase chat will be added here next.
-      `;
+    if (appName === "messages") {
+      loadMessagesApp();
     }
 
-    if (app === "notices") {
+    if (appName === "notices") {
       phoneAppTitle.textContent = "Notices";
       phoneAppText.innerHTML = `
         <strong>NEW ENTRY:</strong><br>
@@ -48,6 +67,79 @@ appButtons.forEach((button) => {
     }
   });
 });
+
+function loadMessagesApp() {
+  phoneAppTitle.textContent = "Messages";
+
+  phoneAppText.innerHTML = `
+    <div class="chat-box" id="chatBox"></div>
+
+    <input class="chat-input" id="nicknameInput" type="text" placeholder="Nickname" maxlength="18" />
+
+    <textarea class="chat-message-input" id="messageInput" placeholder="Write a message..." maxlength="160"></textarea>
+
+    <button class="chat-send-btn" id="sendMessageBtn" type="button">Send</button>
+  `;
+
+  const chatBox = document.getElementById("chatBox");
+  const nicknameInput = document.getElementById("nicknameInput");
+  const messageInput = document.getElementById("messageInput");
+  const sendMessageBtn = document.getElementById("sendMessageBtn");
+
+  const messagesQuery = query(collection(db, "messages"), orderBy("createdAt", "asc"));
+
+  onSnapshot(messagesQuery, (snapshot) => {
+    chatBox.innerHTML = "";
+
+    snapshot.forEach((doc) => {
+      const message = doc.data();
+
+      const messageBubble = document.createElement("div");
+      messageBubble.className = "chat-message";
+      messageBubble.innerHTML = `
+        <strong>${escapeHTML(message.nickname || "Observer")}:</strong>
+        <span>${escapeHTML(message.text || "")}</span>
+      `;
+
+      chatBox.appendChild(messageBubble);
+    });
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+  });
+
+  sendMessageBtn.addEventListener("click", async (event) => {
+    event.stopPropagation();
+
+    const nickname = nicknameInput.value.trim() || "Observer";
+    const text = messageInput.value.trim();
+
+    if (!text) return;
+
+    await addDoc(collection(db, "messages"), {
+      nickname,
+      text,
+      createdAt: serverTimestamp(),
+      userId: "visitor"
+    });
+
+    messageInput.value = "";
+  });
+
+  nicknameInput.addEventListener("click", (event) => event.stopPropagation());
+  messageInput.addEventListener("click", (event) => event.stopPropagation());
+}
+
+function escapeHTML(text) {
+  return text.replace(/[&<>"']/g, (match) => {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    }[match];
+  });
+}
 
 function vibratePhone() {
   phoneButton.classList.add("vibrate");
