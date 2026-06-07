@@ -28,12 +28,15 @@ const appButtons = document.querySelectorAll(".phone-app-btn");
 const phoneAppTitle = document.getElementById("phoneAppTitle");
 const phoneAppText = document.getElementById("phoneAppText");
 
-phoneButton.addEventListener("click", () => {
+phoneButton.addEventListener("click", (event) => {
+  event.stopPropagation();
   phoneButton.classList.add("hide");
   flipPhone.classList.add("open");
 });
 
-flipPhone.addEventListener("click", () => {
+flipPhone.addEventListener("click", (event) => {
+  if (event.target.closest("button, input, textarea")) return;
+
   flipPhone.classList.remove("open");
   phoneButton.classList.remove("hide");
 });
