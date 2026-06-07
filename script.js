@@ -45,37 +45,34 @@ appButtons.forEach((button) => {
     const appName = button.dataset.app;
 
     if (appName === "phone") {
-      phoneAppTitle.textContent = "Observer Hotline";
-      phoneAppText.innerHTML = `
-        <strong>Status:</strong> Available<br><br>
-        Questions?<br>
-        Leave a message in Messages.
-      `;
-    }
+  phoneAppTitle.textContent = "Observer Hotline";
+  phoneAppText.innerHTML = `
+    <strong>Status:</strong> Available<br><br>
+    <strong>Response Hours:</strong><br>
+    After hours + weekends<br><br>
+    Questions?<br>
+    Leave a message in Messages.
+  `;
+}
 
     if (appName === "messages") {
       loadMessagesApp();
     }
 
     if (appName === "notices") {
-      phoneAppTitle.textContent = "Notices";
-      phoneAppText.innerHTML = `
-        <strong>NEW ENTRY:</strong><br>
-        Welcome to Ordinary Things<br><br>
-        Posted June 6, 2026
-      `;
-    }
-  });
-});
+  phoneAppTitle.textContent = "Notices";
+  phoneAppText.innerHTML = `
+    <strong>NEW ENTRY POSTED</strong><br><br>
+    Welcome to Ordinary Things<br><br>
+    <strong>Newest Update:</strong><br>
+    June 6, 2026
+  `;
+}
 
 function loadMessagesApp() {
   phoneAppTitle.textContent = "Messages";
 
   phoneAppText.innerHTML = `
-  <div class="chat-rules">
-    Be kind. No spam. No weird behavior. The Observers are watching.
-  </div>
-
   <div class="chat-box" id="chatBox"></div>
 
   <input class="chat-input" id="nicknameInput" type="text" placeholder="Nickname" maxlength="18" />
