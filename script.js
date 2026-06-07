@@ -193,26 +193,6 @@ commentSections.forEach((section) => {
   });
 });
 
-match /postComments/{postId}/comments/{commentId} {
-  allow read: if true;
-
-  allow create: if
-    request.resource.data.keys().hasOnly([
-      "name",
-      "text",
-      "createdAt"
-    ]) &&
-    request.resource.data.name is string &&
-    request.resource.data.text is string &&
-    request.resource.data.name.size() > 0 &&
-    request.resource.data.name.size() <= 30 &&
-    request.resource.data.text.size() > 0 &&
-    request.resource.data.text.size() <= 200;
-
-  allow update: if false;
-  allow delete: if false;
-}
-
 function escapeHTML(text) {
   return text.replace(/[&<>"']/g, (match) => {
     return {
@@ -234,22 +214,3 @@ function vibratePhone() {
 }
 
 setTimeout(vibratePhone, 1800);
-
-const emojiBtn = document.querySelector(".emoji-btn");
-const commentText = document.querySelector(".comment-text");
-
-if (emojiBtn && commentText) {
-  emojiBtn.addEventListener("click", async () => {
-
-    if ("EmojiPicker" in window) {
-      const picker = new EmojiPicker();
-
-      const result = await picker.pick();
-
-      commentText.value += result.unicode;
-    } else {
-      alert("Your browser does not support the emoji picker.");
-    }
-
-  });
-}
