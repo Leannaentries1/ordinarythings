@@ -29,7 +29,9 @@ const phoneAppTitle = document.getElementById("phoneAppTitle");
 const phoneAppText = document.getElementById("phoneAppText");
 
 phoneButton.addEventListener("click", (event) => {
+  event.preventDefault();
   event.stopPropagation();
+
   phoneButton.classList.add("hide");
   flipPhone.classList.add("open");
 });
