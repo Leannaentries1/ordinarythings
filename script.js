@@ -47,12 +47,12 @@ appButtons.forEach((button) => {
     if (appName === "phone") {
       phoneAppTitle.textContent = "The Unfinished Chapter";
       phoneAppText.innerHTML = `
-        <strong>Status:</strong> Available<br><br>
-        <strong>Response Hours:</strong><br>
-        After hours + weekends<br><br>
-        Questions?<br>
-        Leave a message in Messages.
-      `;
+<strong>Status:</strong> Available<br><br>
+<strong>Response Hours:</strong><br>
+After hours + weekends<br><br>
+Questions?<br>
+Leave a message in Chapter Notes.
+`;
     }
 
     if (appName === "messages") {
