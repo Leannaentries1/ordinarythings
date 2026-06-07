@@ -446,3 +446,50 @@ body {
   display: block;
   font-size: 8px;
 }
+
+.chat-box {
+  height: 95px;
+  overflow-y: auto;
+  border: 1px solid #4b5563;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 6px;
+  margin-bottom: 6px;
+  text-align: left;
+  font-size: 10px;
+}
+
+.chat-message {
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.chat-message strong {
+  display: block;
+}
+
+.chat-input,
+.chat-message-input {
+  width: 100%;
+  border: 1px solid #9ca3af;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+}
+
+.chat-message-input {
+  height: 38px;
+  resize: none;
+}
+
+.chat-send-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 6px;
+  background: #061426;
+  color: #eef6ff;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 10px;
+}
