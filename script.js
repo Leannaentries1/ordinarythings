@@ -72,14 +72,18 @@ function loadMessagesApp() {
   phoneAppTitle.textContent = "Messages";
 
   phoneAppText.innerHTML = `
-    <div class="chat-box" id="chatBox"></div>
+  <div class="chat-rules">
+    Be kind. No spam. No weird behavior. The Observers are watching.
+  </div>
 
-    <input class="chat-input" id="nicknameInput" type="text" placeholder="Nickname" maxlength="18" />
+  <div class="chat-box" id="chatBox"></div>
 
-    <textarea class="chat-message-input" id="messageInput" placeholder="Write a message..." maxlength="160"></textarea>
+  <input class="chat-input" id="nicknameInput" type="text" placeholder="Nickname" maxlength="18" />
 
-    <button class="chat-send-btn" id="sendMessageBtn" type="button">Send</button>
-  `;
+  <textarea class="chat-message-input" id="messageInput" placeholder="Write a message..." maxlength="160"></textarea>
+
+  <button class="chat-send-btn" id="sendMessageBtn" type="button">Send</button>
+`;
 
   const chatBox = document.getElementById("chatBox");
   const nicknameInput = document.getElementById("nicknameInput");
