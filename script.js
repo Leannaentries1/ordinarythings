@@ -1,3 +1,20 @@
+const phoneButton = document.getElementById("phoneButton");
+const flipPhone = document.getElementById("flipPhone");
+
+const appButtons = document.querySelectorAll(".phone-app-btn");
+const phoneAppTitle = document.getElementById("phoneAppTitle");
+const phoneAppText = document.getElementById("phoneAppText");
+
+phoneButton.addEventListener("click", () => {
+  phoneButton.classList.add("hide");
+  flipPhone.classList.add("open");
+});
+
+flipPhone.addEventListener("click", () => {
+  flipPhone.classList.remove("open");
+  phoneButton.classList.remove("hide");
+});
+
 appButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.stopPropagation();
