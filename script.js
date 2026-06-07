@@ -214,3 +214,50 @@ function vibratePhone() {
 }
 
 setTimeout(vibratePhone, 1800);
+
+const commentSections = document.querySelectorAll(".post-comments");
+
+commentSections.forEach((section) => {
+  const postId = section.dataset.postId;
+  const commentList = section.querySelector(".comment-list");
+  const nameInput = section.querySelector(".comment-name");
+  const textInput = section.querySelector(".comment-text");
+  const sendButton = section.querySelector(".comment-send");
+
+  const commentsQuery = query(
+    collection(db, "postComments", postId, "comments"),
+    orderBy("createdAt", "asc")
+  );
+
+  onSnapshot(commentsQuery, (snapshot) => {
+    commentList.innerHTML = "";
+
+    snapshot.forEach((doc) => {
+      const comment = doc.data();
+
+      const bubble = document.createElement("div");
+      bubble.className = "comment-bubble";
+      bubble.innerHTML = `
+        <strong>${escapeHTML(comment.name || "Guest")}</strong>
+        <span>${escapeHTML(comment.text || "")}</span>
+      `;
+
+      commentList.appendChild(bubble);
+    });
+  });
+
+  sendButton.addEventListener("click", async () => {
+    const name = nameInput.value.trim() || "Guest";
+    const text = textInput.value.trim();
+
+    if (!text) return;
+
+    await addDoc(collection(db, "postComments", postId, "comments"), {
+      name,
+      text,
+      createdAt: serverTimestamp()
+    });
+
+    textInput.value = "";
+  });
+});
