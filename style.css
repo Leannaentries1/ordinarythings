@@ -289,7 +289,7 @@ body {
 }
 
 .phone-display {
-  height: 220px;
+  height: 340px;
   margin-top: 34px;
   border: 3px solid #4b5563;
   background: #eef6ff;
@@ -448,7 +448,7 @@ body {
 }
 
 .chat-box {
-  height: 135px;
+  height: 210px;
   overflow-y: auto;
   border: 1px solid #4b5563;
   background: rgba(255, 255, 255, 0.72);
