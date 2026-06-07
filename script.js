@@ -45,56 +45,55 @@ appButtons.forEach((button) => {
     const appName = button.dataset.app;
 
     if (appName === "phone") {
-  phoneAppTitle.textContent = "Observer Hotline";
-  phoneAppText.innerHTML = `
-    <strong>Status:</strong> Available<br><br>
-    <strong>Response Hours:</strong><br>
-    After hours + weekends<br><br>
-    Questions?<br>
-    Leave a message in Messages.
-  `;
-}
+      phoneAppTitle.textContent = "Observer Hotline";
+      phoneAppText.innerHTML = `
+        <strong>Status:</strong> Available<br><br>
+        <strong>Response Hours:</strong><br>
+        After hours + weekends<br><br>
+        Questions?<br>
+        Leave a message in Messages.
+      `;
+    }
 
     if (appName === "messages") {
       loadMessagesApp();
     }
 
     if (appName === "notices") {
-  phoneAppTitle.textContent = "Notices";
-  phoneAppText.innerHTML = `
-    <strong>NEW ENTRY POSTED</strong><br><br>
-    Welcome to Ordinary Things<br><br>
-    <strong>Newest Update:</strong><br>
-    June 6, 2026
-  `;
-}
+      phoneAppTitle.textContent = "Notices";
+      phoneAppText.innerHTML = `
+        <strong>NEW ENTRY POSTED</strong><br><br>
+        Welcome to Ordinary Things<br><br>
+        <strong>Newest Update:</strong><br>
+        June 6, 2026
+      `;
+    }
+  });
+});
 
 function loadMessagesApp() {
   phoneAppTitle.textContent = "Messages";
 
   phoneAppText.innerHTML = `
-  <div class="chat-rules">
-    Be kind. No spam. No weird behavior. The Observers are watching.
-  </div>
+    <div class="chat-box" id="chatBox"></div>
 
-  <div class="chat-box" id="chatBox"></div>
+    <input class="chat-input" id="nicknameInput" type="text" placeholder="Nickname" maxlength="18" />
 
-  <input class="chat-input" id="nicknameInput" type="text" placeholder="Nickname" maxlength="18" />
+    <textarea class="chat-message-input" id="messageInput" placeholder="Write a message..." maxlength="160"></textarea>
 
-  <textarea class="chat-message-input" id="messageInput" placeholder="Write a message..." maxlength="160"></textarea>
-
-  <button class="chat-send-btn" id="sendMessageBtn" type="button">Send</button>
-`;
+    <button class="chat-send-btn" id="sendMessageBtn" type="button">Send</button>
+  `;
 
   const chatBox = document.getElementById("chatBox");
   const nicknameInput = document.getElementById("nicknameInput");
-  const savedNickname = localStorage.getItem("observerNickname");
-
-if (savedNickname) {
-  nicknameInput.value = savedNickname;
-}
   const messageInput = document.getElementById("messageInput");
   const sendMessageBtn = document.getElementById("sendMessageBtn");
+
+  const savedNickname = localStorage.getItem("observerNickname");
+
+  if (savedNickname) {
+    nicknameInput.value = savedNickname;
+  }
 
   const messagesQuery = query(collection(db, "messages"), orderBy("createdAt", "asc"));
 
@@ -118,16 +117,16 @@ if (savedNickname) {
   });
 
   sendMessageBtn.addEventListener("click", async (event) => {
-  event.stopPropagation();
+    event.stopPropagation();
 
-  const nickname = nicknameInput.value.trim() || "Observer";
-  const text = messageInput.value.trim();
+    const nickname = nicknameInput.value.trim() || "Observer";
+    const text = messageInput.value.trim();
 
-  if (!text) return;
+    if (!text) return;
 
-  localStorage.setItem("observerNickname", nickname);
+    localStorage.setItem("observerNickname", nickname);
 
-  await addDoc(collection(db, "messages"), {
+    await addDoc(collection(db, "messages"), {
       nickname,
       text,
       createdAt: serverTimestamp(),
@@ -139,6 +138,7 @@ if (savedNickname) {
 
   nicknameInput.addEventListener("click", (event) => event.stopPropagation());
   messageInput.addEventListener("click", (event) => event.stopPropagation());
+  sendMessageBtn.addEventListener("click", (event) => event.stopPropagation());
 }
 
 function escapeHTML(text) {
