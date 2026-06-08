@@ -215,20 +215,6 @@ function vibratePhone() {
 
 setTimeout(vibratePhone, 1800);
 
-const commentSections = document.querySelectorAll(".post-comments");
-
-commentSections.forEach((section) => {
-  const postId = section.dataset.postId;
-  const commentList = section.querySelector(".comment-list");
-  const nameInput = section.querySelector(".comment-name");
-  const textInput = section.querySelector(".comment-text");
-  const sendButton = section.querySelector(".comment-send");
-
-  const commentsQuery = query(
-    collection(db, "postComments", postId, "comments"),
-    orderBy("createdAt", "asc")
-  );
-
   onSnapshot(commentsQuery, (snapshot) => {
     commentList.innerHTML = "";
 
