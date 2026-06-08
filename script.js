@@ -20,16 +20,6 @@ const firebaseConfig = {
   appId: "1:1089537013433:web:e9f5b6cc75cdb38f2b8d68"
 };
 
-match /postLikes/{postId} {
-  allow read: if true;
-
-  allow create, update: if
-    request.resource.data.keys().hasOnly(["count"]) &&
-    request.resource.data.count is int;
-
-  allow delete: if false;
-}
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
