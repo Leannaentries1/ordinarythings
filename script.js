@@ -215,35 +215,4 @@ function vibratePhone() {
 
 setTimeout(vibratePhone, 1800);
 
-  onSnapshot(commentsQuery, (snapshot) => {
-    commentList.innerHTML = "";
-
-    snapshot.forEach((doc) => {
-      const comment = doc.data();
-
-      const bubble = document.createElement("div");
-      bubble.className = "comment-bubble";
-      bubble.innerHTML = `
-        <strong>${escapeHTML(comment.name || "Guest")}</strong>
-        <span>${escapeHTML(comment.text || "")}</span>
-      `;
-
-      commentList.appendChild(bubble);
-    });
-  });
-
-  sendButton.addEventListener("click", async () => {
-    const name = nameInput.value.trim() || "Guest";
-    const text = textInput.value.trim();
-
-    if (!text) return;
-
-    await addDoc(collection(db, "postComments", postId, "comments"), {
-      name,
-      text,
-      createdAt: serverTimestamp()
-    });
-
-    textInput.value = "";
-  });
-});
+  
