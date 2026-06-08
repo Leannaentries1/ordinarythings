@@ -237,6 +237,15 @@ function escapeHTML(text) {
   });
 }
 
+const likedKey = `liked-${postId}`;
+
+if (localStorage.getItem(likedKey)) {
+  likeBtn.disabled = true;
+}
+
+localStorage.setItem(likedKey, "true");
+likeBtn.disabled = true;
+
 function vibratePhone() {
   phoneButton.classList.add("vibrate");
 
