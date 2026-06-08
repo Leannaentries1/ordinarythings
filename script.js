@@ -193,6 +193,34 @@ commentSections.forEach((section) => {
   });
 });
 
+const likeButtons = document.querySelectorAll(".like-btn");
+
+likeButtons.forEach((button) => {
+  const postId = button.dataset.postId;
+  const countSpan = button.querySelector(".like-count");
+  const likeRef = doc(db, "postLikes", postId);
+
+  onSnapshot(likeRef, (snapshot) => {
+    if (snapshot.exists()) {
+      countSpan.textContent = snapshot.data().count || 0;
+    } else {
+      countSpan.textContent = 0;
+    }
+  });
+
+  button.addEventListener("click", async () => {
+    button.classList.add("liked");
+
+    await setDoc(
+      likeRef,
+      {
+        count: increment(1)
+      },
+      { merge: true }
+    );
+  });
+});
+
 function escapeHTML(text) {
   return text.replace(/[&<>"']/g, (match) => {
     return {
