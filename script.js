@@ -252,22 +252,6 @@ function escapeHTML(text) {
   });
 }
 
-
-if (localStorage.getItem(likedKey)) {
-  likeBtn.disabled = true;
-}
-
-localStorage.setItem(likedKey, "true");
-likeBtn.disabled = true;
-
-function vibratePhone() {
-  phoneButton.classList.add("vibrate");
-
-  setTimeout(() => {
-    phoneButton.classList.remove("vibrate");
-  }, 1200);
-}
-
 setTimeout(vibratePhone, 1800);
 
 const tabButtons = document.querySelectorAll(".tab-btn");
