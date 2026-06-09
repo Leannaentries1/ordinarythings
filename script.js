@@ -310,8 +310,8 @@ function vibratePhone() {
 
 setTimeout(vibratePhone, 1800);
 
-const tabButtons = document.querySelectorAll(".tab-btn");
-const postCards = document.querySelectorAll(".blog-file");
+var tabButtons = document.querySelectorAll(".tab-btn");
+var postCards = document.querySelectorAll(".blog-file");
 
 tabButtons.forEach((button) => {
   button.addEventListener("click", () => {
