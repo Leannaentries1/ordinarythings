@@ -41,19 +41,19 @@ and everything in between.
           </p>
 
           <div class="profile-buttons">
-            <button>Follow</button>
-            <button>Ask</button>
-            <button>Archive</button>
-          </div>
+  <button type="button" id="followBtn">Follow</button>
+  <button type="button" id="askBtn">Ask</button>
+  <button type="button" id="archiveBtn">Archive</button>
+</div>
         </div>
       </header>
 
       <section class="tabs">
-        <button class="active">Posts</button>
-        <button>Blog</button>
-        <button>Notes</button>
-        <button>Media</button>
-      </section>
+  <button class="tab-btn active" data-filter="all">Posts</button>
+  <button class="tab-btn" data-filter="blog">Blog</button>
+  <button class="tab-btn" data-filter="notes">Notes</button>
+  <button class="tab-btn" data-filter="media">Media</button>
+</section>
 
       <!--
 HOW TO ADD A NEW POST:
@@ -119,6 +119,49 @@ Every post needs its own matching post ID.
       </article>
     </section>
 
+    <article class="post-card blog-file" data-category="blog">
+  <div class="post-top">
+    <div class="mini-avatar">UC</div>
+    <div>
+      <h3>The Unfinished Chapter</h3>
+      <span>Filed under: blog</span>
+    </div>
+  </div>
+
+  <p>
+    First real blog entry. Ordinary Things is becoming a place for thoughts,
+    favorites, reviews, little updates, and anything I want to remember before
+    it disappears into the background.
+  </p>
+
+  <div class="tags">
+    <span>#blog</span>
+    <span>#digital diary</span>
+    <span>#ordinary things</span>
+  </div>
+
+  <div class="post-actions">
+    <button class="like-btn" data-post-id="first-blog-entry">
+      ♡ <span class="like-count">0</span>
+    </button>
+
+    <span>↻ 0</span>
+    <span>✉ <span class="comment-count" data-post-id="first-blog-entry">0</span></span>
+  </div>
+
+  <section class="post-comments" data-post-id="first-blog-entry">
+    <h4>Comments</h4>
+
+    <div class="comment-list" id="comments-first-blog-entry"></div>
+
+    <input class="comment-name" type="text" placeholder="Name" maxlength="30" />
+
+    <textarea class="comment-text" placeholder="Leave a comment..." maxlength="200"></textarea>
+
+    <button class="comment-send" type="button">Post Comment</button>
+  </section>
+</article>
+    
     <a href="private-study.html" class="secret-button">
       enter private study
     </a>
