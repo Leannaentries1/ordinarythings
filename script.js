@@ -285,7 +285,7 @@ tabButtons.forEach((button) => {
       const category = post.dataset.category;
 
       if (filter === "all" || category === filter) {
-        post.style.display = "block";
+        post.style.display = "";
       } else {
         post.style.display = "none";
       }
