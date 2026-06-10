@@ -672,3 +672,18 @@ body {
   color: #4b8edc;
   font-weight: bold;
 }
+
+.feed-area {
+  width: 100%;
+  max-width: 780px;
+}
+
+.post-card {
+  width: 100%;
+  max-width: 780px;
+  box-sizing: border-box;
+}
+
+.blog-file {
+  width: 100%;
+}
