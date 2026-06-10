@@ -312,3 +312,11 @@ function vibratePhone() {
 }
 
 setTimeout(vibratePhone, 1800);
+
+followBtn.addEventListener("click", () => {
+  if (followBtn.textContent === "Follow") {
+    followBtn.textContent = "Following";
+  } else {
+    followBtn.textContent = "Follow";
+  }
+});
