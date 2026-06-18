@@ -312,6 +312,18 @@ if (archiveBtn) {
   });
 }
 
+const postsBtn = document.getElementById("postsBtn");
+
+if (postsBtn) {
+  postsBtn.addEventListener("click", () => {
+
+    document.getElementById("askSection").style.display = "none";
+
+    document.getElementById("feedSection").style.display = "block";
+
+  });
+}
+
 function vibratePhone() {
   phoneButton.classList.add("vibrate");
 
