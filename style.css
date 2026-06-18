@@ -803,3 +803,14 @@ body {
 .ask-section:not(.hidden) {
   display: block !important;
 }
+
+#askSection {
+  width: 780px !important;
+  max-width: 90vw !important;
+  margin: 40px auto !important;
+  display: block;
+}
+
+#askSection.hidden {
+  display: none !important;
+}
