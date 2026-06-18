@@ -312,15 +312,17 @@ if (archiveBtn) {
   });
 }
 
-const postsBtn = document.getElementById("postsBtn");
+const backToPostsBtn = document.getElementById("backToPostsBtn");
 
-if (postsBtn) {
-  postsBtn.addEventListener("click", () => {
-
+if (backToPostsBtn) {
+  backToPostsBtn.addEventListener("click", () => {
     document.getElementById("askSection").style.display = "none";
-
     document.getElementById("feedSection").style.display = "block";
 
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   });
 }
 
