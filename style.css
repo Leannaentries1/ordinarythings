@@ -787,30 +787,3 @@ body {
 .hidden {
   display: none !important;
 }
-
-.ask-section {
-  width: min(100%, 780px) !important;
-  max-width: 780px !important;
-  margin: 40px auto !important;
-  padding: 28px !important;
-  box-sizing: border-box;
-}
-
-.ask-section.hidden {
-  display: none !important;
-}
-
-.ask-section:not(.hidden) {
-  display: block !important;
-}
-
-#askSection {
-  width: 780px !important;
-  max-width: 90vw !important;
-  margin: 40px auto !important;
-  display: block;
-}
-
-#askSection.hidden {
-  display: none !important;
-}
