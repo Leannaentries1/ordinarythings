@@ -290,10 +290,16 @@ if (followBtn) {
 
 if (askBtn) {
   askBtn.addEventListener("click", () => {
-    document.getElementById("askSection").scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+
+    document.getElementById("feedSection").style.display = "none";
+
+    document.getElementById("askSection").style.display = "block";
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
     });
+
   });
 }
 
