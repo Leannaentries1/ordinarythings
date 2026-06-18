@@ -290,13 +290,16 @@ if (followBtn) {
 
 if (askBtn) {
   askBtn.addEventListener("click", () => {
-    document.getElementById("feedSection").classList.add("hidden");
-    document.getElementById("askSection").classList.remove("hidden");
+
+    document.getElementById("feedSection").style.display = "none";
+
+    document.getElementById("askSection").style.display = "block";
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+
   });
 }
 
@@ -313,8 +316,8 @@ const backToPostsBtn = document.getElementById("backToPostsBtn");
 
 if (backToPostsBtn) {
   backToPostsBtn.addEventListener("click", () => {
-    document.getElementById("askSection").classList.add("hidden");
-    document.getElementById("feedSection").classList.remove("hidden");
+    document.getElementById("askSection").style.display = "none";
+    document.getElementById("feedSection").style.display = "block";
 
     window.scrollTo({
       top: 0,
