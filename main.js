@@ -353,6 +353,45 @@ if (archiveBtn) {
   });
 }
 
+const askList = document.getElementById("askList");
+const askName = document.getElementById("askName");
+const askQuestion = document.getElementById("askQuestion");
+const askSubmit = document.getElementById("askSubmit");
+
+if (askList && askName && askQuestion && askSubmit) {
+  const asksQuery = query(collection(db, "asks"), orderBy("createdAt", "asc"));
+
+  onSnapshot(asksQuery, (snapshot) => {
+    snapshot.forEach((doc) => {
+      const ask = doc.data();
+
+      const askCard = document.createElement("div");
+      askCard.className = "ask-card";
+      askCard.innerHTML = `
+        <strong>${escapeHTML(ask.name || "Anonymous")}</strong>
+        <p>${escapeHTML(ask.question || "")}</p>
+      `;
+
+      askList.appendChild(askCard);
+    });
+  });
+
+  askSubmit.addEventListener("click", async () => {
+    const name = askName.value.trim() || "Anonymous";
+    const question = askQuestion.value.trim();
+
+    if (!question) return;
+
+    await addDoc(collection(db, "asks"), {
+      name,
+      question,
+      createdAt: serverTimestamp()
+    });
+
+    askQuestion.value = "";
+  });
+}
+
 const backToPostsBtn = document.getElementById("backToPostsBtn");
 
 if (backToPostsBtn) {
